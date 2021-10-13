@@ -20,18 +20,28 @@ const Notes = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [notes, setNotes] = useState([
     {
+      id: 1,
       title: "How to claim the warranty?",
-      content: `"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`
+      content: `"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
+      tag: "Getting Started"
     },
     {
+      id: 2,
       title: "How to claim the warranty?",
-      content: `"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`
+      content: `"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
+      tag: "Getting Started"
     },
     {
+      id: 3,
       title: "How to claim the warranty?",
-      content: `"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`
+      content: `"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
+      tag: "Getting Started"
     }
   ]);
+
+  const deleteNote = id => {
+    setNotes(prevState => prevState.filter(note => note.id != id));
+  };
 
   useEffect(() => {
     //fetchNotes();
@@ -119,8 +129,8 @@ const Notes = () => {
           />
           {notes.length ? (
             <div className="w-full mt-4 pr-4 pl-2">
-              {notes.map((item, idx) => (
-                <NotesCard key={idx} note={item} />
+              {notes.map(item => (
+                <NotesCard key={item.id} note={item} deleteNote={deleteNote} />
               ))}
             </div>
           ) : (
