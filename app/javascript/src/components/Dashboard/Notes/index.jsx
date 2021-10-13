@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import EmptyNotesListImage from "images/EmptyNotesList";
 import { Search } from "neetoicons";
 import { PageLoader } from "neetoui";
-import { Button, Input } from "neetoui/v2";
+import { Button, Input, Toastr } from "neetoui/v2";
 import { Header } from "neetoui/v2/layouts";
 
-import notesApi from "apis/notes";
 import EmptyState from "components/Common/EmptyState";
 import Menubar from "components/Common/Menubar";
 
@@ -22,41 +21,35 @@ const Notes = () => {
     {
       id: 1,
       title: "How to claim the warranty?",
-      content: `"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
-      tag: "Getting Started"
+      description: `"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
+      tags: [{ label: "Getting Started", value: "Getting Started" }]
     },
     {
       id: 2,
       title: "How to claim the warranty?",
-      content: `"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
-      tag: "Getting Started"
+      description: `"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
+      tags: [{ label: "Getting Started", value: "Getting Started" }]
     },
     {
       id: 3,
       title: "How to claim the warranty?",
-      content: `"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
-      tag: "Getting Started"
+      description: `"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
+      tags: [{ label: "Getting Started", value: "Getting Started" }]
     }
   ]);
 
-  const deleteNote = id => {
-    setNotes(prevState => prevState.filter(note => note.id != id));
+  const addNote = async values => {
+    setLoading(true);
+    const prevNotes = [...notes];
+    values["id"] = prevNotes[prevNotes.length - 1].id + 1;
+    setNotes([...prevNotes, values]);
+    Toastr.success("Added Note Successfully");
+    setLoading(false);
   };
 
-  useEffect(() => {
-    //fetchNotes();
-  }, []);
-
-  const fetchNotes = async () => {
-    try {
-      setLoading(true);
-      const response = await notesApi.fetch();
-      setNotes(response.data.notes);
-    } catch (error) {
-      logger.error(error);
-    } finally {
-      setLoading(false);
-    }
+  const deleteNote = id => {
+    setNotes(prevState => prevState.filter(note => note.id != id));
+    Toastr.success("Deleted Note Successfully");
   };
 
   if (loading) {
@@ -145,7 +138,7 @@ const Notes = () => {
           <NewNotePane
             showPane={showNewNotePane}
             setShowPane={setShowNewNotePane}
-            fetchNotes={fetchNotes}
+            addNote={addNote}
           />
         </div>
       </div>
