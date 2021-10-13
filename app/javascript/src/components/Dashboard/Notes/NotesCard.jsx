@@ -29,10 +29,15 @@ const NotesCard = ({ note, deleteNote }) => {
           <div className="border-b neeto-ui-gray-200 w-full"></div>
         </div>
         <div className="w-full px-4 flex pt-4 mb-4 justify-between">
-          <Tag
-            className="bg-gray-100 text-gray-500"
-            label={note.tags[0].label}
-          />
+          <div className="flex gap-x-2">
+            {note.tags.map((tag, idx) => (
+              <Tag
+                key={idx}
+                className="bg-gray-100 text-gray-500"
+                label={tag.label}
+              />
+            ))}
+          </div>
           <div className="gap-x-2 flex">
             <Clock className="my-auto" size={10} />
             <Tooltip

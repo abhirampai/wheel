@@ -29,8 +29,13 @@ export default function NewNotePane({ showPane, setShowPane, addNote }) {
         validationSchema={yup.object({
           title: yup.string().required("Title is required"),
           description: yup.string().required("Description is required"),
-          role: yup.object().required("Role required"),
-          tags: yup.array().required("Tag required")
+          role: yup
+            .object({
+              label: yup.string(),
+              value: yup.string()
+            })
+            .required("Role required"),
+          tags: yup.array().min(1).required("Tag required")
         })}
       >
         {({ isSubmitting }) => (
