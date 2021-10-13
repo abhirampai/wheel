@@ -2,7 +2,14 @@ import React, { useState } from "react";
 
 import EmptyNotesListImage from "images/EmptyNotesList";
 import { Search } from "neetoicons";
-import { Button, Input, PageLoader, Checkbox, Pagination } from "neetoui/v2";
+import {
+  Button,
+  Input,
+  PageLoader,
+  Checkbox,
+  Pagination,
+  Toastr
+} from "neetoui/v2";
 import { Header, Scrollable, Container } from "neetoui/v2/layouts";
 
 import EmptyState from "components/Common/EmptyState";
@@ -44,6 +51,7 @@ const Contacts = () => {
     setContacts(prevContacts =>
       prevContacts.filter(contact => contact.id !== indexVal)
     );
+    Toastr.success("Contact deleted successfully");
     setLoading(false);
   };
 
@@ -162,7 +170,7 @@ const Contacts = () => {
               image={EmptyNotesListImage}
               title="Looks like you don't have any notes!"
               subtitle="Add your notes to send customized emails to them."
-              // primaryAction={() => setShowNewContactPane(true)}
+              primaryAction={() => null}
               primaryActionLabel="Add New Note"
             />
           )}
