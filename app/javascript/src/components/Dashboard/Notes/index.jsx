@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import EmptyNotesListImage from "images/EmptyNotesList";
 import { Search } from "neetoicons";
 import { PageLoader } from "neetoui";
-import { Button, Input } from "neetoui/v2";
+import { Button, Input, Toastr } from "neetoui/v2";
 import { Header } from "neetoui/v2/layouts";
 
 import notesApi from "apis/notes";
@@ -41,6 +41,7 @@ const Notes = () => {
 
   const deleteNote = id => {
     setNotes(prevState => prevState.filter(note => note.id != id));
+    Toastr.success("Deleted Note Successfully");
   };
 
   useEffect(() => {
