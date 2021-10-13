@@ -1,27 +1,18 @@
 import React, { useState } from "react";
 
 import EmptyNotesListImage from "images/EmptyNotesList";
-import { Search, MenuHorizontal } from "neetoicons";
-import {
-  Button,
-  Input,
-  Avatar,
-  PageLoader,
-  Dropdown,
-  Checkbox,
-  Pagination,
-  Typography
-} from "neetoui/v2";
+import { Search } from "neetoicons";
+import { Button, Input, PageLoader, Checkbox, Pagination } from "neetoui/v2";
 import { Header, Scrollable, Container } from "neetoui/v2/layouts";
 
-import Alert from "components/Common/Alert";
 import EmptyState from "components/Common/EmptyState";
 import Menubar from "components/Common/Menubar";
+
+import ContactRow from "./ContactRow";
 
 const Contacts = () => {
   const [loading, setLoading] = useState(false);
   // const [showNewContactPane, setShowNewContactPane] = useState(false);
-  const [showModal, setShowModal] = useState(false);
   const [showMenu, setShowMenu] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [contacts, setContacts] = useState([
@@ -31,13 +22,27 @@ const Contacts = () => {
       role: "Owner",
       email: "oliversmith@example.com",
       createdAt: "Oct 14th, 2021"
+    },
+    {
+      id: 2,
+      name: "Ronald Richards",
+      role: "Owner",
+      email: "ronaldrichards@example.com",
+      createdAt: "Oct 14th, 2021"
+    },
+    {
+      id: 3,
+      name: "Jacob Johns",
+      role: "Owner",
+      email: "jacobjohns@example.com",
+      createdAt: "Oct 14th, 2021"
     }
   ]);
 
   const deleteContact = indexVal => {
     setLoading(true);
     setContacts(prevContacts =>
-      prevContacts.filter((_, index) => index !== indexVal)
+      prevContacts.filter(contact => contact.id !== indexVal)
     );
     setLoading(false);
   };
@@ -131,64 +136,13 @@ const Contacts = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {Array(50)
-                          .fill(contacts[0])
-                          .map((contact, index) => (
-                            <React.Fragment key={index}>
-                              <tr>
-                                <td>
-                                  <Checkbox name={index} />
-                                </td>
-                                <td>
-                                  <div className="flex gap-x-2">
-                                    <Avatar
-                                      size={"large"}
-                                      user={{ name: contact.name }}
-                                    />
-                                    <div className="flex flex-col mt-1">
-                                      <Typography style="h5" weight="semi-bold">
-                                        {contact.name}
-                                      </Typography>
-                                      <Typography style="body3" weight="light">
-                                        {contact.role}
-                                      </Typography>
-                                    </div>
-                                  </div>
-                                </td>
-                                <td>
-                                  <Typography style="body2" weight="light">
-                                    {contact.email}
-                                  </Typography>
-                                </td>
-                                <td>
-                                  <Typography style="body2" weight="light">
-                                    {contact.createdAt}
-                                  </Typography>
-                                </td>
-                                <td>
-                                  <div className="flex flex-row items-center justify-end space-x-3">
-                                    <Dropdown
-                                      icon={MenuHorizontal}
-                                      buttonStyle="icon"
-                                      autoWidth
-                                    >
-                                      <li>Edit</li>
-                                      <li onClick={() => setShowModal(true)}>
-                                        Delete
-                                      </li>
-                                    </Dropdown>
-                                  </div>
-                                </td>
-                              </tr>
-                              <Alert
-                                modalName={"Contact"}
-                                showModal={showModal}
-                                setShowModal={setShowModal}
-                                deleteFunc={deleteContact}
-                                id={index}
-                              />
-                            </React.Fragment>
-                          ))}
+                        {contacts.map((contact, index) => (
+                          <ContactRow
+                            key={index}
+                            contact={contact}
+                            deleteContact={deleteContact}
+                          />
+                        ))}
                       </tbody>
                     </table>
                   </>
