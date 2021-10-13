@@ -54,7 +54,7 @@ const NotesCard = ({ note, deleteNote }) => {
         modalName={"Note"}
         showModal={showModal}
         setShowModal={setShowModal}
-        deleteNote={deleteNote}
+        deleteFunc={deleteNote}
         id={note.id}
       />
     </>

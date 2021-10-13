@@ -4,7 +4,7 @@ import EmptyNotesListImage from "images/EmptyNotesList";
 import { Search } from "neetoicons";
 import { PageLoader } from "neetoui";
 import { Button, Input, Toastr } from "neetoui/v2";
-import { Header } from "neetoui/v2/layouts";
+import { Header, Container } from "neetoui/v2/layouts";
 
 import EmptyState from "components/Common/EmptyState";
 import Menubar from "components/Common/Menubar";
@@ -60,7 +60,7 @@ const Notes = () => {
     <>
       <div className="flex w-full">
         <Menubar showMenu={showMenu} title={"Notes"} />
-        <div className="w-full flex-shrink">
+        <Container>
           <Header
             title={
               <div className="flex items-center">
@@ -140,7 +140,7 @@ const Notes = () => {
             setShowPane={setShowNewNotePane}
             addNote={addNote}
           />
-        </div>
+        </Container>
       </div>
     </>
   );

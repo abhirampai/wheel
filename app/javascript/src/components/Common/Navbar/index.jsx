@@ -47,7 +47,7 @@ const NavBar = () => {
               return <UserCircle size={24} />;
             },
             label: "Contact",
-            to: "/contact"
+            to: "/contacts"
           },
           {
             icon: function noRefCheck() {
