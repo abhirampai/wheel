@@ -1,7 +1,7 @@
 import React from "react";
 
 import { MenuVertical, Clock } from "neetoicons";
-import { Tag, Avatar, Tooltip } from "neetoui/v2";
+import { Tag, Avatar, Tooltip, Dropdown } from "neetoui/v2";
 
 const NotesCard = ({ note }) => {
   const imageUrl = "https://i.pravatar.cc/300";
@@ -9,7 +9,14 @@ const NotesCard = ({ note }) => {
     <div className="border mt-5 neeto-ui-border-gray-300 h-max neeto-ui-shadow-s">
       <div className="pt-4 px-4 flex w-full justify-between">
         <h3>{note.title}</h3>
-        <MenuVertical size={24} color={"gray"} />
+        <Dropdown
+          icon={() => <MenuVertical size={20} color={"gray"} />}
+          position="bottom-start"
+          buttonStyle="text"
+        >
+          <li>Edit</li>
+          <li>Delete</li>
+        </Dropdown>
       </div>
       <div className="text-gray pt-2 px-4">
         <p className="text-sm pr-1">{note.content}</p>
