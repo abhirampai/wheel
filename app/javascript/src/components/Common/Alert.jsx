@@ -2,7 +2,7 @@ import React from "react";
 
 import { Modal, Typography, Button } from "neetoui/v2";
 
-const Alert = ({ modalName, showModal, setShowModal, deleteNote, id }) => {
+const Alert = ({ modalName, showModal, setShowModal, deleteFunc, id }) => {
   return (
     <>
       <Modal isOpen={showModal} onClose={() => setShowModal(false)} size={"md"}>
@@ -19,7 +19,7 @@ const Alert = ({ modalName, showModal, setShowModal, deleteNote, id }) => {
           <Button
             label="Continue"
             onClick={() => {
-              deleteNote(id);
+              deleteFunc(id);
               setShowModal(false);
             }}
             size="large"

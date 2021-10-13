@@ -2,54 +2,57 @@ import React, { useState } from "react";
 
 import EmptyNotesListImage from "images/EmptyNotesList";
 import { Search } from "neetoicons";
-import { PageLoader } from "neetoui";
-import { Button, Input, Toastr } from "neetoui/v2";
-import { Header, Container } from "neetoui/v2/layouts";
+import {
+  Button,
+  Input,
+  PageLoader,
+  Checkbox,
+  Pagination,
+  Toastr
+} from "neetoui/v2";
+import { Header, Scrollable, Container } from "neetoui/v2/layouts";
 
 import EmptyState from "components/Common/EmptyState";
 import Menubar from "components/Common/Menubar";
 
-import NewNotePane from "./NewNotePane";
-import NotesCard from "./NotesCard";
+import ContactRow from "./ContactRow";
 
-const Notes = () => {
+const Contacts = () => {
   const [loading, setLoading] = useState(false);
-  const [showNewNotePane, setShowNewNotePane] = useState(false);
+  // const [showNewContactPane, setShowNewContactPane] = useState(false);
   const [showMenu, setShowMenu] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  const [notes, setNotes] = useState([
+  const [contacts, setContacts] = useState([
     {
       id: 1,
-      title: "How to claim the warranty?",
-      description: `"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
-      tags: [{ label: "Getting Started", value: "Getting Started" }]
+      name: "Oliver Smith",
+      role: "Owner",
+      email: "oliversmith@example.com",
+      createdAt: "Oct 14th, 2021"
     },
     {
       id: 2,
-      title: "How to claim the warranty?",
-      description: `"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
-      tags: [{ label: "Getting Started", value: "Getting Started" }]
+      name: "Ronald Richards",
+      role: "Owner",
+      email: "ronaldrichards@example.com",
+      createdAt: "Oct 14th, 2021"
     },
     {
       id: 3,
-      title: "How to claim the warranty?",
-      description: `"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
-      tags: [{ label: "Getting Started", value: "Getting Started" }]
+      name: "Jacob Johns",
+      role: "Owner",
+      email: "jacobjohns@example.com",
+      createdAt: "Oct 14th, 2021"
     }
   ]);
 
-  const addNote = async values => {
+  const deleteContact = indexVal => {
     setLoading(true);
-    const prevNotes = [...notes];
-    values["id"] = prevNotes[prevNotes.length - 1].id + 1;
-    setNotes([...prevNotes, values]);
-    Toastr.success("Added Note Successfully");
+    setContacts(prevContacts =>
+      prevContacts.filter(contact => contact.id !== indexVal)
+    );
+    Toastr.success("Contact deleted successfully");
     setLoading(false);
-  };
-
-  const deleteNote = id => {
-    setNotes(prevState => prevState.filter(note => note.id != id));
-    Toastr.success("Deleted Note Successfully");
   };
 
   if (loading) {
@@ -59,12 +62,12 @@ const Notes = () => {
   return (
     <>
       <div className="flex w-full">
-        <Menubar showMenu={showMenu} title={"Notes"} />
+        <Menubar showMenu={showMenu} title={"Contacts"} />
         <Container>
           <Header
             title={
               <div className="flex items-center">
-                <h3 className="text-2xl">Notes</h3>
+                <h3 className="text-2xl">Contacts</h3>
               </div>
             }
             menuBarHandle={
@@ -113,37 +116,68 @@ const Notes = () => {
                 />
                 <Button
                   className="mr-2 w-36"
-                  onClick={() => setShowNewNotePane(true)}
-                  label="Add New Note"
+                  label="Add Contact"
                   icon="ri-add-line"
                 />
               </div>
             }
           />
-          {notes.length ? (
-            <div className="w-full mt-4 pr-4 pl-2">
-              {notes.map(item => (
-                <NotesCard key={item.id} note={item} deleteNote={deleteNote} />
-              ))}
-            </div>
+          {contacts.length ? (
+            <>
+              <Scrollable className="w-full">
+                {loading ? (
+                  <PageLoader />
+                ) : (
+                  <>
+                    <table
+                      className={`neeto-ui-table neeto-ui-table--checkbox neeto-ui-table--actions`}
+                    >
+                      <thead>
+                        <tr>
+                          <th>
+                            <Checkbox name="header" />
+                          </th>
+                          <th>{`${"Name & Role"}`}</th>
+                          <th>Email</th>
+                          <th>CreatedAt</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {contacts.map((contact, index) => (
+                          <ContactRow
+                            key={index}
+                            contact={contact}
+                            deleteContact={deleteContact}
+                          />
+                        ))}
+                      </tbody>
+                    </table>
+                  </>
+                )}
+              </Scrollable>
+              <div className="flex flex-row items-center justify-end w-full mt-6 mb-8">
+                <Pagination
+                  count={300}
+                  pageNo={1}
+                  pageSize={25}
+                  navigate={() => {}}
+                />
+              </div>
+            </>
           ) : (
             <EmptyState
               image={EmptyNotesListImage}
               title="Looks like you don't have any notes!"
               subtitle="Add your notes to send customized emails to them."
-              primaryAction={() => setShowNewNotePane(true)}
+              primaryAction={() => null}
               primaryActionLabel="Add New Note"
             />
           )}
-          <NewNotePane
-            showPane={showNewNotePane}
-            setShowPane={setShowNewNotePane}
-            addNote={addNote}
-          />
         </Container>
       </div>
     </>
   );
 };
 
-export default Notes;
+export default Contacts;
