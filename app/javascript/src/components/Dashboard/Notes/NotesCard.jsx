@@ -23,13 +23,16 @@ const NotesCard = ({ note, deleteNote }) => {
           </Dropdown>
         </div>
         <div className="text-gray pt-2 px-4">
-          <p className="text-sm pr-1">{note.content}</p>
+          <p className="text-sm pr-1">{note.description}</p>
         </div>
         <div className="w-full px-4 pt-2">
           <div className="border-b neeto-ui-gray-200 w-full"></div>
         </div>
         <div className="w-full px-4 flex pt-4 mb-4 justify-between">
-          <Tag className="bg-gray-100 text-gray-500" label={note.tag} />
+          <Tag
+            className="bg-gray-100 text-gray-500"
+            label={note.tags[0].label}
+          />
           <div className="gap-x-2 flex">
             <Clock className="my-auto" size={10} />
             <Tooltip
