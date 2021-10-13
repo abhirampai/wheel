@@ -1,7 +1,7 @@
 import React from "react";
 
 import { MenuVertical, Clock } from "neetoicons";
-import { Tag, Avatar } from "neetoui/v2";
+import { Tag, Avatar, Tooltip } from "neetoui/v2";
 
 const NotesCard = ({ note }) => {
   const imageUrl = "https://i.pravatar.cc/300";
@@ -21,7 +21,12 @@ const NotesCard = ({ note }) => {
         <Tag className="bg-gray-100 text-gray-500" label="Getting Started" />
         <div className="gap-x-2 flex">
           <Clock className="my-auto" size={10} />
-          <span className="my-auto text-sm">Created 2 hours ago</span>
+          <Tooltip
+            content={<span>Wednesday, 10:30AM</span>}
+            placement="bottom-start"
+          >
+            <span className="my-auto text-sm">Created 2 hours ago</span>
+          </Tooltip>
           <Avatar user={{ name: "Test User", imageUrl }} size="medium" />
         </div>
       </div>
