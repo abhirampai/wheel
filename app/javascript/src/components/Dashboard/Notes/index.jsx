@@ -49,40 +49,7 @@ const Notes = () => {
                 <h3 className="text-2xl">Notes</h3>
               </div>
             }
-            menuBarHandle={
-              <Button
-                className="mr-2"
-                icon={() => {
-                  return (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="#68737D"
-                        strokeWidth="1.5"
-                        d="M3 7.25L21 7.25"
-                      ></path>
-                      <path
-                        stroke="#68737D"
-                        strokeWidth="1.5"
-                        d="M3 11.25L15 11.25"
-                      ></path>
-                      <path
-                        stroke="#68737D"
-                        strokeWidth="1.5"
-                        d="M3 15.25L11 15.25"
-                      ></path>
-                    </svg>
-                  );
-                }}
-                onClick={() => setShowMenu(prevState => !prevState)}
-                style="text"
-              />
-            }
+            menuBarToggle={() => setShowMenu(prevState => !prevState)}
             actionBlock={
               <div className="flex justify-between mr-2 w-max">
                 <Input
