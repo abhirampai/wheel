@@ -6,6 +6,7 @@ import { PageLoader } from "neetoui";
 import { Button, Input, Toastr } from "neetoui/v2";
 import { Header, Container } from "neetoui/v2/layouts";
 
+import { initialNotesList } from "common/constants";
 import EmptyState from "components/Common/EmptyState";
 import Menubar from "components/Common/Menubar";
 
@@ -17,26 +18,7 @@ const Notes = () => {
   const [showNewNotePane, setShowNewNotePane] = useState(false);
   const [showMenu, setShowMenu] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  const [notes, setNotes] = useState([
-    {
-      id: 1,
-      title: "How to claim the warranty?",
-      description: `"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
-      tags: [{ label: "Getting Started", value: "Getting Started" }]
-    },
-    {
-      id: 2,
-      title: "How to claim the warranty?",
-      description: `"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
-      tags: [{ label: "Getting Started", value: "Getting Started" }]
-    },
-    {
-      id: 3,
-      title: "How to claim the warranty?",
-      description: `"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting`,
-      tags: [{ label: "Getting Started", value: "Getting Started" }]
-    }
-  ]);
+  const [notes, setNotes] = useState(initialNotesList);
 
   const addNote = async values => {
     setLoading(true);
@@ -121,7 +103,7 @@ const Notes = () => {
             }
           />
           {notes.length ? (
-            <div className="w-full mt-4 pr-4 pl-2">
+            <div className="w-full pl-2 pr-4 mt-4">
               {notes.map(item => (
                 <NotesCard key={item.id} note={item} deleteNote={deleteNote} />
               ))}
