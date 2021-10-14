@@ -31,39 +31,41 @@ export default function NewNotePane({ showPane, setShowPane, addNote }) {
       >
         {({ isSubmitting }) => (
           <Form className="w-full">
-            <Pane.Body className="space-y-6">
-              <Input
-                label="Title"
-                name="title"
-                placeholder="Enter Title"
-                required={true}
-              />
-              <Input
-                label="Description"
-                name="description"
-                placeholder="Enter Description"
-                size={"large"}
-                required={true}
-              />
-              <Select
-                isClearable
-                isSearchable
-                required={true}
-                label="Assigned Contact"
-                name="role"
-                options={ROLE_OPTIONS}
-                placeholder="Select a Role"
-              />
-              <Select
-                isClearable
-                isSearchable
-                required={true}
-                isMulti
-                label="Tags"
-                name="tags"
-                options={TAGS_OPTIONS}
-                placeholder="Select Tags"
-              />
+            <Pane.Body>
+              <div className="w-full space-y-6">
+                <Input
+                  label="Title"
+                  name="title"
+                  placeholder="Enter Title"
+                  required={true}
+                />
+                <Input
+                  label="Description"
+                  name="description"
+                  placeholder="Enter Description"
+                  size="large"
+                  required={true}
+                />
+                <Select
+                  isClearable
+                  isSearchable
+                  required={true}
+                  label="Assigned Contact"
+                  name="role"
+                  options={ROLE_OPTIONS}
+                  placeholder="Select a Role"
+                />
+                <Select
+                  isClearable
+                  isSearchable
+                  required={true}
+                  isMulti
+                  label="Tags"
+                  name="tags"
+                  options={TAGS_OPTIONS}
+                  placeholder="Select Tags"
+                />
+              </div>
             </Pane.Body>
             <Pane.Footer className="flex space-x-4">
               <Button

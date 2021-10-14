@@ -30,37 +30,39 @@ export default function NewContactPane({ showPane, setShowPane, addNote }) {
       >
         {({ isSubmitting }) => (
           <Form className="w-full">
-            <Pane.Body className="space-y-6">
-              <div className="flex space-x-2">
+            <Pane.Body>
+              <div className="w-full space-y-6">
+                <div className="flex space-x-2">
+                  <Input
+                    label="First Name"
+                    name="firstName"
+                    placeholder="Enter first name"
+                    required={true}
+                  />
+                  <Input
+                    label="Last Name"
+                    name="lastName"
+                    placeholder="Enter last name"
+                    required={true}
+                  />
+                </div>
                 <Input
-                  label="First Name"
-                  name="firstName"
-                  placeholder="Enter first name"
+                  label="Email"
+                  name="email"
+                  placeholder="Enter email"
+                  size={"large"}
                   required={true}
                 />
-                <Input
-                  label="Last Name"
-                  name="lastName"
-                  placeholder="Enter last name"
+                <Select
+                  isClearable
+                  isSearchable
                   required={true}
+                  label="Assigned Contact"
+                  name="role"
+                  options={ROLE_OPTIONS}
+                  placeholder="Select a Role"
                 />
               </div>
-              <Input
-                label="Email"
-                name="email"
-                placeholder="Enter email"
-                size={"large"}
-                required={true}
-              />
-              <Select
-                isClearable
-                isSearchable
-                required={true}
-                label="Assigned Contact"
-                name="role"
-                options={ROLE_OPTIONS}
-                placeholder="Select a Role"
-              />
             </Pane.Body>
             <Pane.Footer className="flex space-x-4">
               <Button
