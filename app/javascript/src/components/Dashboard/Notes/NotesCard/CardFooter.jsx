@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Clock } from "neetoicons";
-import { Avatar, Tooltip, Tag } from "neetoui/v2";
+import { Avatar, Tooltip, Tag, Typography } from "neetoui/v2";
 
 const CardFooter = ({ tags, imageUrl }) => {
   return (
@@ -25,7 +25,9 @@ const CardFooter = ({ tags, imageUrl }) => {
             content={<span>Wednesday, 10:30AM</span>}
             placement="bottom-start"
           >
-            <span className="my-auto text-sm">Created 2 hours ago</span>
+            <Typography style="body3" className="my-auto text-gray">
+              Created 2 hours ago
+            </Typography>
           </Tooltip>
           <Avatar user={{ name: "Test User", imageUrl }} size="medium" />
         </div>

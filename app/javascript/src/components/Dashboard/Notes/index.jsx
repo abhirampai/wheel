@@ -6,10 +6,10 @@ import { PageLoader } from "neetoui";
 import { Button, Input, Toastr } from "neetoui/v2";
 import { Header, Container } from "neetoui/v2/layouts";
 
-import { initialNotesList } from "common/constants";
 import EmptyState from "components/Common/EmptyState";
 import Menubar from "components/Common/Menubar";
 
+import { INITIAL_NOTES_LIST } from "./constants";
 import NewNotePane from "./NewNotePane";
 import NotesCard from "./NotesCard";
 
@@ -18,7 +18,7 @@ const Notes = () => {
   const [showNewNotePane, setShowNewNotePane] = useState(false);
   const [showMenu, setShowMenu] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  const [notes, setNotes] = useState(initialNotesList);
+  const [notes, setNotes] = useState(INITIAL_NOTES_LIST);
 
   const addNote = async values => {
     setLoading(true);

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { Typography } from "neetoui/v2";
+
 import Alert from "components/Common/Alert";
 
 import CardBody from "./CardBody";
@@ -13,7 +15,9 @@ const NotesCard = ({ note, deleteNote }) => {
     <>
       <div className="mt-5 border neeto-ui-border-gray-300 neeto-ui-shadow-s">
         <CardHeader title={note.title} setShowModal={setShowModal} />
-        <CardBody description={note.description} />
+        <CardBody>
+          <Typography style="body2">{note.description}</Typography>
+        </CardBody>
         <CardFooter tags={note.tags} imageUrl={imageUrl} />
       </div>
       <Alert
