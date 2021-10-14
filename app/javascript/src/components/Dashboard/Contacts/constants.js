@@ -1,21 +1,24 @@
 const INITIAL_CONTACT_LIST = [
   {
     id: 1,
-    name: "Oliver Smith",
+    firstName: "Oliver",
+    lastName: "Smith",
     role: "Owner",
     email: "oliversmith@example.com",
     createdAt: "Oct 14th, 2021"
   },
   {
     id: 2,
-    name: "Ronald Richards",
+    firstName: "Ronald",
+    lastName: "Richards",
     role: "Owner",
     email: "ronaldrichards@example.com",
     createdAt: "Oct 14th, 2021"
   },
   {
     id: 3,
-    name: "Jacob Johns",
+    firstName: "Jacob",
+    lastName: "Johns",
     role: "Owner",
     email: "jacobjohns@example.com",
     createdAt: "Oct 14th, 2021"
