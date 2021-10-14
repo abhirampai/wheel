@@ -15,10 +15,13 @@ const ContactRow = ({ contact, deleteContact }) => {
         </td>
         <td>
           <div className="flex gap-x-2">
-            <Avatar size={"large"} user={{ name: contact.name }} />
+            <Avatar
+              size={"large"}
+              user={{ name: `${contact.firstName} ${contact.lastName}` }}
+            />
             <div className="flex flex-col mt-1">
               <Typography style="h5" weight="semi-bold">
-                {contact.name}
+                {contact.firstName} {contact.lastName}
               </Typography>
               <Typography style="body3" weight="light">
                 {contact.role}

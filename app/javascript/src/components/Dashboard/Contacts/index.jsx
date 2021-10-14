@@ -2,21 +2,14 @@ import React, { useState } from "react";
 
 import EmptyNotesListImage from "images/EmptyNotesList";
 import { Search } from "neetoicons";
-import {
-  Button,
-  Input,
-  PageLoader,
-  Checkbox,
-  Pagination,
-  Toastr
-} from "neetoui/v2";
+import { Button, Input, PageLoader, Pagination, Toastr } from "neetoui/v2";
 import { Header, Scrollable, Container } from "neetoui/v2/layouts";
 
 import EmptyState from "components/Common/EmptyState";
 import Menubar from "components/Common/Menubar";
 
 import { INITIAL_CONTACT_LIST } from "./constants";
-import ContactRow from "./ContactRow";
+import ContactTable from "./ContactTable";
 
 const Contacts = () => {
   const [loading, setLoading] = useState(false);
@@ -107,30 +100,10 @@ const Contacts = () => {
                   <PageLoader />
                 ) : (
                   <>
-                    <table
-                      className={`neeto-ui-table neeto-ui-table--checkbox neeto-ui-table--actions`}
-                    >
-                      <thead>
-                        <tr>
-                          <th>
-                            <Checkbox name="header" />
-                          </th>
-                          <th>{`${"Name & Role"}`}</th>
-                          <th>Email</th>
-                          <th>CreatedAt</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {contacts.map((contact, index) => (
-                          <ContactRow
-                            key={index}
-                            contact={contact}
-                            deleteContact={deleteContact}
-                          />
-                        ))}
-                      </tbody>
-                    </table>
+                    <ContactTable
+                      contacts={contacts}
+                      deleteContact={deleteContact}
+                    />
                   </>
                 )}
               </Scrollable>
