@@ -7,11 +7,11 @@ import { Button } from "neetoui/v2";
 import { Input, Select } from "neetoui/v2/formik";
 
 import {
-  initialAddNotesForm,
-  roleOptions,
-  tagsOptions,
-  validateNotesForm
-} from "common/constants";
+  INITIAL_ADD_NOTES_FORM,
+  ROLE_OPTIONS,
+  TAGS_OPTIONS,
+  VALIDATE_NOTES_FORM
+} from "./constants";
 
 export default function NewNotePane({ showPane, setShowPane, addNote }) {
   const onClose = () => setShowPane(false);
@@ -25,9 +25,9 @@ export default function NewNotePane({ showPane, setShowPane, addNote }) {
         <h2>Add New Note</h2>
       </Pane.Header>
       <Formik
-        initialValues={initialAddNotesForm}
+        initialValues={INITIAL_ADD_NOTES_FORM}
         onSubmit={handleSubmit}
-        validationSchema={validateNotesForm}
+        validationSchema={VALIDATE_NOTES_FORM}
       >
         {({ isSubmitting }) => (
           <Form className="w-full">
@@ -51,7 +51,7 @@ export default function NewNotePane({ showPane, setShowPane, addNote }) {
                 required={true}
                 label="Assigned Contact"
                 name="role"
-                options={roleOptions}
+                options={ROLE_OPTIONS}
                 placeholder="Select a Role"
               />
               <Select
@@ -61,7 +61,7 @@ export default function NewNotePane({ showPane, setShowPane, addNote }) {
                 isMulti
                 label="Tags"
                 name="tags"
-                options={tagsOptions}
+                options={TAGS_OPTIONS}
                 placeholder="Select Tags"
               />
             </Pane.Body>

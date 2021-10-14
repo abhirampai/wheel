@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-const initialNotesList = [
+const INITIAL_NOTES_LIST = [
   {
     id: 1,
     title: "How to claim the warranty?",
@@ -21,38 +21,14 @@ const initialNotesList = [
   }
 ];
 
-const initialContactList = [
-  {
-    id: 1,
-    name: "Oliver Smith",
-    role: "Owner",
-    email: "oliversmith@example.com",
-    createdAt: "Oct 14th, 2021"
-  },
-  {
-    id: 2,
-    name: "Ronald Richards",
-    role: "Owner",
-    email: "ronaldrichards@example.com",
-    createdAt: "Oct 14th, 2021"
-  },
-  {
-    id: 3,
-    name: "Jacob Johns",
-    role: "Owner",
-    email: "jacobjohns@example.com",
-    createdAt: "Oct 14th, 2021"
-  }
-];
-
-const initialAddNotesForm = {
+const INITIAL_ADD_NOTES_FORM = {
   title: "",
   description: "",
   role: {},
   tags: []
 };
 
-const validateNotesForm = yup.object({
+const VALIDATE_NOTES_FORM = yup.object({
   title: yup.string().required("Title is required"),
   description: yup.string().required("Description is required"),
   role: yup
@@ -64,7 +40,7 @@ const validateNotesForm = yup.object({
   tags: yup.array().min(1).required("Tag required")
 });
 
-const roleOptions = [
+const ROLE_OPTIONS = [
   {
     label: "Value One",
     value: "value1"
@@ -87,7 +63,7 @@ const roleOptions = [
   }
 ];
 
-const tagsOptions = [
+const TAGS_OPTIONS = [
   {
     label: "Getting Started",
     value: "Getting Started"
@@ -111,10 +87,9 @@ const tagsOptions = [
 ];
 
 export {
-  initialNotesList,
-  initialContactList,
-  initialAddNotesForm,
-  validateNotesForm,
-  roleOptions,
-  tagsOptions
+  INITIAL_NOTES_LIST,
+  INITIAL_ADD_NOTES_FORM,
+  VALIDATE_NOTES_FORM,
+  ROLE_OPTIONS,
+  TAGS_OPTIONS
 };

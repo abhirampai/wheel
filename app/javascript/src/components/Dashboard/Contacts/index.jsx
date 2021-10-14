@@ -12,17 +12,17 @@ import {
 } from "neetoui/v2";
 import { Header, Scrollable, Container } from "neetoui/v2/layouts";
 
-import { initialContactList } from "common/constants";
 import EmptyState from "components/Common/EmptyState";
 import Menubar from "components/Common/Menubar";
 
+import { INITIAL_CONTACT_LIST } from "./constants";
 import ContactRow from "./ContactRow";
 
 const Contacts = () => {
   const [loading, setLoading] = useState(false);
   const [showMenu, setShowMenu] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  const [contacts, setContacts] = useState(initialContactList);
+  const [contacts, setContacts] = useState(INITIAL_CONTACT_LIST);
 
   const deleteContact = indexVal => {
     setLoading(true);
