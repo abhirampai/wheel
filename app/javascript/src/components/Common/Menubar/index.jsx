@@ -15,10 +15,22 @@ const Menubar = ({ showMenu, title }) => {
           </div>
         }
       >
-        <MenuBar.Block label="All" count={13} active />
-        <MenuBar.Block label="Users" count={2} />
-        <MenuBar.Block label="Leads" count={7} />
-        <MenuBar.Block label="Visitors" count={4} />
+        {title === "Notes" && (
+          <>
+            <MenuBar.Block label="All" count={200} active />
+            <MenuBar.Block label="Users" count={80} />
+            <MenuBar.Block label="Leads" count={60} />
+            <MenuBar.Block label="Visitors" count={60} />
+          </>
+        )}
+        {title === "Contacts" && (
+          <>
+            <MenuBar.Block label="All" count={0} active />
+            <MenuBar.Block label="Archived" count={0} />
+            <MenuBar.Block label="Completed" count={0} />
+            <MenuBar.Block label="Phase 2" count={0} />
+          </>
+        )}
 
         <MenuBar.SubTitle
           iconProps={[
@@ -36,10 +48,14 @@ const Menubar = ({ showMenu, title }) => {
             Segments
           </Typography>
         </MenuBar.SubTitle>
-        <MenuBar.Block label="Europe" count={80} />
-        <MenuBar.Block label="Middle-East" count={60} />
-        <MenuBar.Block label="Asia" count={60} />
-        <MenuBar.AddNew label="Add New Segments" />
+        {title === "Notes" && (
+          <>
+            <MenuBar.Block label="Europe" count={80} />
+            <MenuBar.Block label="Middle-East" count={60} />
+            <MenuBar.Block label="Asia" count={60} />
+            <MenuBar.AddNew label="Add New Segments" />
+          </>
+        )}
         <MenuBar.SubTitle
           iconProps={[
             {
@@ -62,10 +78,14 @@ const Menubar = ({ showMenu, title }) => {
             Tags
           </Typography>
         </MenuBar.SubTitle>
-        <MenuBar.Block label="Europe" count={80} />
-        <MenuBar.Block label="Middle-East" count={60} />
-        <MenuBar.Block label="Asia" count={60} />
-        <MenuBar.AddNew label="Add New Tag" />
+        {title === "Notes" && (
+          <>
+            <MenuBar.Block label="Europe" count={80} />
+            <MenuBar.Block label="Middle-East" count={60} />
+            <MenuBar.Block label="Asia" count={60} />
+            <MenuBar.AddNew label="Add New Tag" />
+          </>
+        )}
       </MenuBar>
     </>
   );
