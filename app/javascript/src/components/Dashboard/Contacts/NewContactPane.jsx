@@ -7,13 +7,12 @@ import { Button } from "neetoui/v2";
 import { Input, Select } from "neetoui/v2/formik";
 
 import {
-  INITIAL_ADD_NOTES_FORM,
+  INITIAL_ADD_CONTACT_FORM,
   ROLE_OPTIONS,
-  TAGS_OPTIONS,
-  VALIDATE_NOTES_FORM
+  VALIDATE_CONTACT_FORM
 } from "./constants";
 
-export default function NewNotePane({ showPane, setShowPane, addNote }) {
+export default function NewContactPane({ showPane, setShowPane, addNote }) {
   const onClose = () => setShowPane(false);
   const handleSubmit = async values => {
     addNote(values);
@@ -25,25 +24,33 @@ export default function NewNotePane({ showPane, setShowPane, addNote }) {
         <h2>Add New Note</h2>
       </Pane.Header>
       <Formik
-        initialValues={INITIAL_ADD_NOTES_FORM}
+        initialValues={INITIAL_ADD_CONTACT_FORM}
         onSubmit={handleSubmit}
-        validationSchema={VALIDATE_NOTES_FORM}
+        validationSchema={VALIDATE_CONTACT_FORM}
       >
         {({ isSubmitting }) => (
           <Form className="w-full">
             <Pane.Body>
               <div className="w-full space-y-6">
+                <div className="flex space-x-2">
+                  <Input
+                    label="First Name"
+                    name="firstName"
+                    placeholder="Enter first name"
+                    required={true}
+                  />
+                  <Input
+                    label="Last Name"
+                    name="lastName"
+                    placeholder="Enter last name"
+                    required={true}
+                  />
+                </div>
                 <Input
-                  label="Title"
-                  name="title"
-                  placeholder="Enter Title"
-                  required={true}
-                />
-                <Input
-                  label="Description"
-                  name="description"
-                  placeholder="Enter Description"
-                  size="large"
+                  label="Email"
+                  name="email"
+                  placeholder="Enter email"
+                  size={"large"}
                   required={true}
                 />
                 <Select
@@ -54,16 +61,6 @@ export default function NewNotePane({ showPane, setShowPane, addNote }) {
                   name="role"
                   options={ROLE_OPTIONS}
                   placeholder="Select a Role"
-                />
-                <Select
-                  isClearable
-                  isSearchable
-                  required={true}
-                  isMulti
-                  label="Tags"
-                  name="tags"
-                  options={TAGS_OPTIONS}
-                  placeholder="Select Tags"
                 />
               </div>
             </Pane.Body>

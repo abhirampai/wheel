@@ -10,9 +10,11 @@ import Menubar from "components/Common/Menubar";
 
 import { INITIAL_CONTACT_LIST } from "./constants";
 import ContactTable from "./ContactTable";
+import NewContactPane from "./NewContactPane";
 
 const Contacts = () => {
   const [loading, setLoading] = useState(false);
+  const [showNewContactPane, setShowNewContactPane] = useState(false);
   const [showMenu, setShowMenu] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [contacts, setContacts] = useState(INITIAL_CONTACT_LIST);
@@ -23,6 +25,16 @@ const Contacts = () => {
       prevContacts.filter(contact => contact.id !== indexVal)
     );
     Toastr.success("Contact deleted successfully");
+    setLoading(false);
+  };
+
+  const addContact = async values => {
+    setLoading(true);
+    const prevContacts = [...contacts];
+    values["id"] = prevContacts[prevContacts.length - 1].id + 1;
+    values["createdAt"] = "Oct 14th, 2021";
+    setContacts([...prevContacts, values]);
+    Toastr.success("Added Contact Successfully");
     setLoading(false);
   };
 
@@ -41,40 +53,7 @@ const Contacts = () => {
                 <h3 className="text-2xl">Contacts</h3>
               </div>
             }
-            menuBarHandle={
-              <Button
-                className="mr-2"
-                icon={() => {
-                  return (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="#68737D"
-                        strokeWidth="1.5"
-                        d="M3 7.25L21 7.25"
-                      ></path>
-                      <path
-                        stroke="#68737D"
-                        strokeWidth="1.5"
-                        d="M3 11.25L15 11.25"
-                      ></path>
-                      <path
-                        stroke="#68737D"
-                        strokeWidth="1.5"
-                        d="M3 15.25L11 15.25"
-                      ></path>
-                    </svg>
-                  );
-                }}
-                onClick={() => setShowMenu(prevState => !prevState)}
-                style="text"
-              />
-            }
+            menuBarToggle={() => setShowMenu(prevState => !prevState)}
             actionBlock={
               <div className="flex justify-between mr-2 w-max">
                 <Input
@@ -87,6 +66,7 @@ const Contacts = () => {
                 />
                 <Button
                   className="mr-2 w-36"
+                  onClick={() => setShowNewContactPane(true)}
                   label="Add Contact"
                   icon="ri-add-line"
                 />
@@ -121,10 +101,15 @@ const Contacts = () => {
               image={EmptyNotesListImage}
               title="Looks like you don't have any notes!"
               subtitle="Add your notes to send customized emails to them."
-              primaryAction={() => null}
+              primaryAction={() => setShowNewContactPane(true)}
               primaryActionLabel="Add New Note"
             />
           )}
+          <NewContactPane
+            showPane={showNewContactPane}
+            setShowPane={setShowNewContactPane}
+            addNote={addContact}
+          />
         </Container>
       </div>
     </>

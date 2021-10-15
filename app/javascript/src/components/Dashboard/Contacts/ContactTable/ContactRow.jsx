@@ -24,7 +24,7 @@ const ContactRow = ({ contact, deleteContact }) => {
                 {contact.firstName} {contact.lastName}
               </Typography>
               <Typography style="body3" weight="light">
-                {contact.role}
+                {contact.role.value}
               </Typography>
             </div>
           </div>
