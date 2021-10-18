@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { MenuHorizontal } from "neetoicons";
-import { Typography, Checkbox, Avatar, Dropdown } from "neetoui/v2";
+import { Typography, Checkbox, Avatar, Dropdown } from "neetoui";
 
 import Alert from "components/Common/Alert";
 

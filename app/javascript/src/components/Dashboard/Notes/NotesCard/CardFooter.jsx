@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Clock } from "neetoicons";
-import { Avatar, Tooltip, Tag, Typography } from "neetoui/v2";
+import { Avatar, Tooltip, Tag, Typography } from "neetoui";
 
 const CardFooter = ({ tags, imageUrl }) => {
   return (

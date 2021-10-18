@@ -7,7 +7,7 @@ module.exports = {
       constants: "src/constants",
       contexts: "src/contexts",
       reducers: "src/reducers",
-      neetoui: "@bigbinary/neetoui",
+      neetoui: "@bigbinary/neetoui/v2",
       helpers: "src/helpers",
       neetoicons: "@bigbinary/neeto-icons"
     }

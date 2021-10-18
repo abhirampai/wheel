@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Modal, Typography, Button } from "neetoui/v2";
+import { Modal, Typography, Button } from "neetoui";
 
 const Alert = ({ modalName, showModal, setShowModal, deleteFunc, id }) => {
   return (

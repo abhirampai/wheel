@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 import EmptyNotesListImage from "images/EmptyNotesList";
 import { Search } from "neetoicons";
-import { Button, Input, PageLoader, Pagination, Toastr } from "neetoui/v2";
-import { Header, Scrollable, Container } from "neetoui/v2/layouts";
+import { Button, Input, PageLoader, Pagination, Toastr } from "neetoui";
+import { Header, Scrollable, Container } from "neetoui/layouts";
 
 import EmptyState from "components/Common/EmptyState";
 import Menubar from "components/Common/Menubar";

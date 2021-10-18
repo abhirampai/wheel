@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Typography } from "neetoui/v2";
+import { Typography } from "neetoui";
 
 import Alert from "components/Common/Alert";
 
