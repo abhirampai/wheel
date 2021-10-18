@@ -10,9 +10,9 @@ module.exports = {
       "./app/javascript/**/**/*.jsx",
       "./app/javascript/**/**/**/*.jsx",
       "./app/views/**/**/*.slim",
-      "./app/views/**/**/*/*.slim",
+      "./app/views/**/**/*/*.slim"
     ],
-    defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
+    defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
   },
   theme: {
     extend: {
@@ -27,12 +27,15 @@ module.exports = {
           600: "#4C5FBF",
           700: "#323F7F",
           800: "#262F5F",
-          900: "#192040",
+          900: "#192040"
         },
-      },
+        content: {
+          600: "#68737D"
+        }
+      }
     }
   },
   variants: {
-    borderWidth: ['last']
+    borderWidth: ["last"]
   }
 };
