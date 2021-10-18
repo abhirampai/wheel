@@ -53,7 +53,7 @@ const Notes = () => {
             actionBlock={
               <div className="flex justify-between mr-2 w-max">
                 <Input
-                  className="pr-2 w-96"
+                  className="pr-3 w-96"
                   onChange={e => setSearchTerm(e.target.value)}
                   placeholder="Search Name, Email, Phone Number"
                   size="large"
