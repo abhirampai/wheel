@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { MenuHorizontal } from "neetoicons";
-import { Typography, Checkbox, Avatar, Dropdown } from "neetoui";
+import { Typography, Checkbox, Avatar, Dropdown, Tooltip } from "neetoui";
 
 import Alert from "components/Common/Alert";
 
@@ -30,9 +30,16 @@ const ContactRow = ({ contact, deleteContact }) => {
           </div>
         </td>
         <td>
-          <Typography style="body2" weight="light">
-            {contact.email}
-          </Typography>
+          <Tooltip
+            content={<span>{contact.email}</span>}
+            placement="bottom-start"
+          >
+            <p>
+              <Typography style="body2" weight="light" className="truncate">
+                {contact.email}
+              </Typography>
+            </p>
+          </Tooltip>
         </td>
         <td>
           <Typography style="body2" weight="light">
