@@ -13,7 +13,7 @@ const NotesCard = ({ note, deleteNote }) => {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
-      <div className="mt-5 border neeto-ui-border-gray-300 neeto-ui-shadow-s">
+      <div className="mt-5 border rounded neeto-ui-border-gray-300 neeto-ui-shadow-s">
         <CardHeader title={note.title} setShowModal={setShowModal} />
         <CardBody>
           <Typography style="body2">{note.description}</Typography>
