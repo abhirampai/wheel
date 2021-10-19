@@ -57,7 +57,7 @@ const Contacts = () => {
             actionBlock={
               <div className="flex justify-between mr-2 w-max">
                 <Input
-                  className="pr-2 w-96"
+                  className="pr-4 w-96"
                   onChange={e => setSearchTerm(e.target.value)}
                   placeholder="Search Name, Email, Phone Number"
                   size="large"

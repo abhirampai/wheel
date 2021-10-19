@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import { MenuHorizontal } from "neetoicons";
 import { Typography, Checkbox, Avatar, Dropdown, Tooltip } from "neetoui";
@@ -6,6 +6,15 @@ import { Typography, Checkbox, Avatar, Dropdown, Tooltip } from "neetoui";
 import Alert from "components/Common/Alert";
 
 const ContactRow = ({ contact, deleteContact }) => {
+  const rowRef = useRef();
+  const [overflow, setOverflow] = useState(false);
+  useEffect(() => {
+    const isOverflown = element => {
+      setOverflow(element.current.offsetWidth < element.current.scrollWidth);
+    };
+    isOverflown(rowRef);
+  }, []);
+
   const [showModal, setShowModal] = useState(false);
   return (
     <React.Fragment>
@@ -33,11 +42,10 @@ const ContactRow = ({ contact, deleteContact }) => {
           <Tooltip
             content={<span>{contact.email}</span>}
             placement="bottom-start"
+            className={`${overflow ? "block" : "hidden"}`}
           >
-            <p>
-              <Typography style="body2" weight="light" className="truncate">
-                {contact.email}
-              </Typography>
+            <p ref={rowRef} className={`truncate overflow-hidden`}>
+              {contact.email}
             </p>
           </Tooltip>
         </td>
