@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Clock } from "neetoicons";
-import { Avatar, Tooltip, Tag } from "neetoui";
+import { Avatar, Tooltip, Tag, Typography } from "neetoui";
 
 const CardFooter = ({ tags, imageUrl }) => {
   return (
@@ -29,9 +29,9 @@ const CardFooter = ({ tags, imageUrl }) => {
               placement="bottom-start"
               className="absolute h-6 -inset-x-6 w-36"
             >
-              <span className="text-xs text-content-600">
+              <Typography style="body3" className="my-auto text-gray">
                 Created 2 hours ago
-              </span>
+              </Typography>
             </Tooltip>
           </div>
           <Avatar user={{ name: "Test User", imageUrl }} size="small" />

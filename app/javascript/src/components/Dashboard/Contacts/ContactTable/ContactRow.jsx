@@ -44,9 +44,14 @@ const ContactRow = ({ contact, deleteContact }) => {
             placement="bottom-start"
             className={`${overflow ? "block" : "hidden"}`}
           >
-            <p ref={rowRef} className={`truncate overflow-hidden`}>
-              {contact.email}
-            </p>
+            <Typography
+              ref={rowRef}
+              style="body2"
+              className={`truncate overflow-hidden`}
+            >
+              {contact.email} {contact.email} {contact.email} {contact.email}{" "}
+              {contact.email} {contact.email}
+            </Typography>
           </Tooltip>
         </td>
         <td>
