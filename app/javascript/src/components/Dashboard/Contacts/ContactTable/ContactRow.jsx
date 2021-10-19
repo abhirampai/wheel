@@ -49,8 +49,7 @@ const ContactRow = ({ contact, deleteContact }) => {
               style="body2"
               className={`truncate overflow-hidden`}
             >
-              {contact.email} {contact.email} {contact.email} {contact.email}{" "}
-              {contact.email} {contact.email}
+              {contact.email}
             </Typography>
           </Tooltip>
         </td>
