@@ -948,7 +948,7 @@
     "@babel/helper-validator-identifier" "^7.14.9"
     to-fast-properties "^2.0.0"
 
-"@bigbinary/neeto-icons@^1.7.4":
+"@bigbinary/neeto-icons@^1.7.6":
   version "1.7.6"
   resolved "https://registry.yarnpkg.com/@bigbinary/neeto-icons/-/neeto-icons-1.7.6.tgz#22961e938f46e18713226500516bf9eb58a00f33"
   integrity sha512-MvLbFfkUN2gD1oy/Dy3OFtNzrCAMGzpdG0RnzgLj4lEhpYPFmXlZZ1c2zMIiop9it1Hms07E4Ufw0jfOrJ0ZXA==
@@ -957,12 +957,12 @@
     react "^17.0.2"
     react-dom "^17.0.2"
 
-"@bigbinary/neetoui@^2.0.82":
-  version "2.0.82"
-  resolved "https://registry.yarnpkg.com/@bigbinary/neetoui/-/neetoui-2.0.82.tgz#b3ae74a6e38d06aa41982d0f14fc33116615363d"
-  integrity sha512-4QihjsTbP3EY2q87lWYqDI1fSOmOX6elW7GoRMoOk82IV45fM+lYgP0M7V3HSKmasFMkb3VegSHCu2XRakO/og==
+"@bigbinary/neetoui@^2.0.88":
+  version "2.0.88"
+  resolved "https://registry.yarnpkg.com/@bigbinary/neetoui/-/neetoui-2.0.88.tgz#46a3983999b960b8ef1670c2c673fde56602dfc2"
+  integrity sha512-c0DvNHirGTE7LdfkJffXr02soZUJ3wFyFWqDio00uAvuFIfvNZaHmKJ68vDDJFBlhwLJgiLFCIvIFl4KLnf0aw==
   dependencies:
-    "@bigbinary/neeto-icons" "^1.7.4"
+    "@bigbinary/neeto-icons" "^1.7.6"
     "@popperjs/core" "^2.9.2"
     "@reach/auto-id" "^0.15.0"
     "@tailwindcss/forms" "^0.3.2"
@@ -5462,9 +5462,9 @@ mini-css-extract-plugin@^0.9.0:
     webpack-sources "^1.1.0"
 
 mini-svg-data-uri@^1.2.3:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/mini-svg-data-uri/-/mini-svg-data-uri-1.3.3.tgz#91d2c09f45e056e5e1043340b8b37ba7b50f4fac"
-  integrity sha512-+fA2oRcR1dJI/7ITmeQJDrYWks0wodlOz0pAEhKYJ2IVc1z0AnwJUsKY2fzFmPAM3Jo9J0rBx8JAA9QQSJ5PuA==
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/mini-svg-data-uri/-/mini-svg-data-uri-1.4.3.tgz#43177b2e93766ba338931a3e2a84a3dfd3a222b8"
+  integrity sha512-gSfqpMRC8IxghvMcxzzmMnWpXAChSA+vy4cia33RgerMS8Fex95akUyQZPbxJJmeBGiGmK7n/1OpUX8ksRjIdA==
 
 minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
   version "1.0.1"
@@ -5812,7 +5812,7 @@ object-visit@^1.0.0:
 
 object.assign@^4.1.0, object.assign@^4.1.1, object.assign@^4.1.2:
   version "4.1.2"
-  resolved "https://registry.npmjs.org/object.assign/-/object.assign-4.1.2.tgz"
+  resolved "https://registry.yarnpkg.com/object.assign/-/object.assign-4.1.2.tgz#0ed54a342eceb37b38ff76eb831a0e788cb63940"
   integrity sha512-ixT2L5THXsApyiUPYKmW+2EHpXXe5Ii3M+f4e+aJFAHao5amFRW6J0OO6c/LU8Be47utCx2GL89hxGB6XSmKuQ==
   dependencies:
     call-bind "^1.0.0"
@@ -5873,7 +5873,7 @@ object.pick@^1.3.0:
 
 object.values@^1.1.0, object.values@^1.1.4, object.values@^1.1.5:
   version "1.1.5"
-  resolved "https://registry.npmjs.org/object.values/-/object.values-1.1.5.tgz"
+  resolved "https://registry.yarnpkg.com/object.values/-/object.values-1.1.5.tgz#959f63e3ce9ef108720333082131e4a459b716ac"
   integrity sha512-QUZRW0ilQ3PnPpbNtgdNV1PDbEqLIiSFB3l+EnGtBQ/8SUTLj1PZwtQHABZtLgwpJZTSZhuGLOGk57Drx2IvYg==
   dependencies:
     call-bind "^1.0.2"
@@ -7231,9 +7231,9 @@ react-fast-compare@^3.0.1:
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
 
 react-hotkeys-hook@^3.3.2:
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/react-hotkeys-hook/-/react-hotkeys-hook-3.4.3.tgz#74da79c2a5106f8d203f543794833c1af39030ac"
-  integrity sha512-rb8wjXItbZ0ItX1lHKd1lVfqoiGhzrnNo+rtqNoTkxMdyUcxI3RIdP8wmAHoK9Z/0F+aHo2yWAeKgv3pUvmGpw==
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/react-hotkeys-hook/-/react-hotkeys-hook-3.4.4.tgz#52ba5d8ef5e47cc2e776c70a9036d518e0993d51"
+  integrity sha512-vaORq07rWgmuF3owWRhgFV/3VL8/l2q9lz0WyVEddJnWTtKW+AOgU5YgYKuwN6h6h7bCcLG3MFsJIjCrM/5DvQ==
   dependencies:
     hotkeys-js "3.8.7"
 

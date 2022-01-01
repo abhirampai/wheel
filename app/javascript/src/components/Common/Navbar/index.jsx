@@ -2,7 +2,7 @@ import React from "react";
 
 import { UserCircle, NeetoInsights, Keyboard } from "neetoicons";
 import { Toastr } from "neetoui";
-import { Sidebar } from "neetoui/v2/layouts";
+import { Sidebar } from "neetoui/layouts";
 import { withRouter } from "react-router-dom";
 
 import authenticationApi from "apis/authentication";

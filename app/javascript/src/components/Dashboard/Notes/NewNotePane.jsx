@@ -2,9 +2,9 @@ import React from "react";
 
 import { Formik, Form } from "formik";
 import { Check } from "neetoicons";
-import { Pane } from "neetoui/v2";
-import { Button } from "neetoui/v2";
-import { Input, Select } from "neetoui/v2/formik";
+import { Pane } from "neetoui";
+import { Button } from "neetoui";
+import { Input, Select } from "neetoui/formik";
 
 import {
   INITIAL_ADD_NOTES_FORM,

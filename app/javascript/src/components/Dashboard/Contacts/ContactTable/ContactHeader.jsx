@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Checkbox } from "neetoui/v2";
+import { Checkbox } from "neetoui";
 
 const ContactHeader = () => {
   return (

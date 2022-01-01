@@ -1,8 +1,8 @@
 import React from "react";
 
 import { Search, Settings, Plus } from "neetoicons";
-import { Typography } from "neetoui/v2";
-import { MenuBar } from "neetoui/v2/layouts";
+import { Typography } from "neetoui";
+import { MenuBar } from "neetoui/layouts";
 
 const Menubar = ({ showMenu, title }) => {
   return (

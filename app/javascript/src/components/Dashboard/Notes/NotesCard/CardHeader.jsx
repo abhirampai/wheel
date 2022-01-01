@@ -1,7 +1,7 @@
 import React from "react";
 
 import { MenuVertical } from "neetoicons";
-import { Dropdown, Typography } from "neetoui/v2";
+import { Dropdown, Typography } from "neetoui";
 
 const CardHeader = ({ title, setShowModal }) => {
   return (

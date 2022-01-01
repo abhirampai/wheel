@@ -2,9 +2,9 @@ import React from "react";
 
 import { Formik, Form } from "formik";
 import { Check } from "neetoicons";
-import { Pane } from "neetoui/v2";
-import { Button } from "neetoui/v2";
-import { Input, Select } from "neetoui/v2/formik";
+import { Pane } from "neetoui";
+import { Button } from "neetoui";
+import { Input, Select } from "neetoui/formik";
 
 import {
   INITIAL_ADD_CONTACT_FORM,
@@ -37,13 +37,11 @@ export default function NewContactPane({ showPane, setShowPane, addNote }) {
                     label="First Name"
                     name="firstName"
                     placeholder="Enter first name"
-                    required={true}
                   />
                   <Input
                     label="Last Name"
                     name="lastName"
                     placeholder="Enter last name"
-                    required={true}
                   />
                 </div>
                 <Input
@@ -51,12 +49,10 @@ export default function NewContactPane({ showPane, setShowPane, addNote }) {
                   name="email"
                   placeholder="Enter email"
                   size={"large"}
-                  required={true}
                 />
                 <Select
                   isClearable
                   isSearchable
-                  required={true}
                   label="Assigned Contact"
                   name="role"
                   options={ROLE_OPTIONS}

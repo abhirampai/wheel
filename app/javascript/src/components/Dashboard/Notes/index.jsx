@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import EmptyNotesListImage from "images/EmptyNotesList";
 import { Search } from "neetoicons";
 import { PageLoader } from "neetoui";
-import { Button, Input, Toastr } from "neetoui/v2";
-import { Header, Container } from "neetoui/v2/layouts";
+import { Button, Input, Toastr } from "neetoui";
+import { Header, Container } from "neetoui/layouts";
 
 import EmptyState from "components/Common/EmptyState";
 import Menubar from "components/Common/Menubar";
@@ -53,7 +53,7 @@ const Notes = () => {
             actionBlock={
               <div className="flex justify-between mr-2 w-max">
                 <Input
-                  className="pr-2 w-96"
+                  className="pr-3 w-96"
                   onChange={e => setSearchTerm(e.target.value)}
                   placeholder="Search Name, Email, Phone Number"
                   size="large"
